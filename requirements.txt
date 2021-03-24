@@ -1,0 +1,12 @@
+# Curl client
+requests
+# Timezone library
+pytz
+# MSSQL client
+python-tds
+# Postgres client
+psycopg2-binary
+# UI library
+selenium
+# SSO client
+python-keycloak-client
