@@ -7,7 +7,7 @@ Toolkit for the quality in order to help writing tests
 Clone the project
 
 ```bash
-git clone git@git.vptech.eu:veepee/vptech/qa/quality-toolkit.git quality-toolkit
+git clone https://github.com/veepee-oss/quality-toolkit quality-toolkit
 cd quality-toolkit
 ```
 
