@@ -53,11 +53,11 @@ This library share services that give customize clients
 ```python
 from quality_toolkit.services.sso import Sso
 # Create your own resources for your application
-from resources.environment.sso import sso_constant
+from resources.environment.sso import sso_env
 
 ...
-context.sso1 = Sso(sso_constant.SERVER_URL, sso_constant.REALM_NAME, sso_constant.CLIENT_ID, sso_constant.CLIENT_SECRET, sso_constant.AUDIENCE)
-context.sso2 = Sso(sso_constant.SERVER_URL, sso_constant.REALM_NAME, sso_constant.CLIENT_ID, sso_constant.CLIENT_SECRET, sso_constant.AUDIENCE)
+context.sso1 = Sso(sso_env.SERVER_URL, sso_env.REALM_NAME, sso_env.CLIENT_ID, sso_env.CLIENT_SECRET, sso_env.AUDIENCE)
+context.sso2 = Sso(sso_env.SERVER_URL, sso_env.REALM_NAME, sso_env.CLIENT_ID, sso_env.CLIENT_SECRET, sso_env.AUDIENCE)
 ...
 token1 = context.sso1.jwt_token()
 token2 = context.sso2.jwt_token()
