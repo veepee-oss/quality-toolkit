@@ -7,7 +7,6 @@ import time
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-
 class ConnectionPsql():
     """docstring for ConnectionPsql"""
 

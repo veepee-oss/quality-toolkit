@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytz
 
-def find_dataset(name: str, filepath = 'resources/dataset/'):
+def find_resource(name: str, filepath = 'resources/'):
     for path in Path(filepath).rglob('*.*'):
         if path.name.__contains__(name):
             return path
@@ -22,7 +22,7 @@ def get_timezone_paris(timezone = 'Europe/Paris'):
 
 def expected_value_test(context, value: str):
     """
-        
+
     """
     if str(value).__contains__('context'):
         split_value = value.split('.')

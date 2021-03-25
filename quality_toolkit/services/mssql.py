@@ -5,7 +5,7 @@ import logging
 
 import pytds
 
-from helpers import local_functions as helpers
+from quality_toolkit.helpers.local_functions import find_resource
 
 class ConnectionMssql():
     """docstring for ConnectionMssql"""
@@ -27,9 +27,9 @@ class ConnectionMssql():
         result = self.cursor.fetchone()
         return result
 
-    def execute_script(self, script_name, params=None):
-        logging.debug("execute_script, script_name: %s, params: %s", script_name, params)
-        with open(helpers.get_project_file_path(script_name), 'r') as script:
+    def execute_script(self, script_name, script_path='resources/scripts/', params=None):
+        logging.debug("execute_script, script: %s%s, params: %s", script_path, script_name, params)
+        with open(find_resource(script_name, script_path), 'r') as script:
             query = script.read() if params is None else script.read() % params
             self.cursor.execute(query)
             self.connection.commit()
