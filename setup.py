@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r") as f:
-    long_description = f.read()
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 setup(
     name="quality-toolkit",
@@ -19,6 +19,7 @@ setup(
     author_email="jmfiaschi@veepee.com",
     description="Toolkit for the quality in order to help writing tests",
     keywords="Quality toolkit",
+    long_description_content_type="text/markdown",
     long_description=long_description,
     url="https://github.com/veepee-oss/quality-toolkit"
 )
