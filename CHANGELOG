@@ -1,3 +1,10 @@
+## [1.0.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.0...1.0.1) (2021-03-26)
+
+
+### Bug Fixes
+
+* **setup:** add long_description_content_type ([6328f1a](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/6328f1a8bd662b638813719c0259f95d597b4b45))
+
 # 1.0.0 (2021-03-26)
 
 
