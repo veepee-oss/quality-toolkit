@@ -13,7 +13,9 @@ cd quality-toolkit
 
 ## Installation in local
 
+```bash
 make install
+```
 
 ## Installation in a project
 
