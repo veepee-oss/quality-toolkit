@@ -2,30 +2,18 @@
 Service MSSQL
 """
 import logging
-
 import pytds
 
+from base_sql import BaseSql
 from quality_toolkit.helpers.local_functions import find_resource
 
-class ConnectionMssql():
+class ConnectionMssql(BaseSql):
     """docstring for ConnectionMssql"""
 
     def __init__(self, db_config):
         logging.debug("db_config: %s", db_config)
         self.connection = pytds.connect(**db_config, as_dict=True)
         self.cursor = self.connection.cursor()
-
-    def fetch_all(self, query, params=None):
-        logging.debug("fetch_all, query: %s, params: %s", query, params)
-        self.cursor.execute(query, params)
-        result = self.cursor.fetchall()
-        return result
-
-    def fetch_one(self, query, params=None):
-        logging.debug("fetch_one, query: %s, params: %s", query, params)
-        self.cursor.execute(query, params)
-        result = self.cursor.fetchone()
-        return result
 
     def execute_script(self, script_name, script_path='resources/scripts/', params=None):
         logging.debug("execute_script, script: %s%s, params: %s", script_path, script_name, params)
@@ -49,7 +37,3 @@ class ConnectionMssql():
             self.cursor.execute(query, params)
         self.connection.commit()
         return 0
-
-    def close(self):
-        self.connection.close()
-        self.cursor.close()
