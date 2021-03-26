@@ -1,3 +1,10 @@
+## [1.0.4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.3...1.0.4) (2021-03-26)
+
+
+### Bug Fixes
+
+* **services:** base sql dependency ([b193258](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/b19325807f5828b4829d5aa0103c90a44bd4401a))
+
 ## [1.0.3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.2...1.0.3) (2021-03-26)
 
 
