@@ -1,12 +1,12 @@
 # Curl client
-requests
+requests~=2.25
 # Timezone library
-pytz
+pytz~=2021.1
 # MSSQL client
-python-tds
+python-tds~=1.10
 # Postgres client
-psycopg2-binary
+psycopg2-binary~=2.8
 # UI library
-selenium
+selenium~=3.141
 # SSO client
-python-keycloak-client
+python-keycloak-client~=0.2
