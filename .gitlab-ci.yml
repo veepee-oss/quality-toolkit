@@ -1,0 +1,26 @@
+---
+variables:
+  PYTHON_MODULE: quality_toolkit
+  APP_NAME: quality-toolkit
+  SEMANTIC_CONFIG_FILE: python
+  PYTHON_VEEPEE_REGISTRY_ENABLED: false
+  REGISTRY_PYPI_REPO: https://test.pypi.org/legacy/
+
+stages:
+  - lint
+  - release
+  - build
+
+include:
+  - project: veepee/vptech/sre/iac/ci-cd/markdown-lint
+    ref: 1.2.2
+    file: gitlab-ci.yml
+  - project: veepee/vptech/sre/iac/ci-cd/semantic-release
+    ref: 3.2.1
+    file: gitlab-ci.yml
+  - project: veepee/vptech/sre/iac/ci-cd/python-build
+    ref: 2.0.1
+    file: gitlab-ci.yml
+  - project: veepee/vptech/sre/iac/ci-cd/python-lint
+    ref: 1.1.3
+    file: gitlab-ci.yml
