@@ -7,6 +7,14 @@ from pathlib import Path
 import pytz
 
 def find_resource(name: str, filepath = 'resources/'):
+    """
+    Help to find a resource in a project.
+
+    :param str name: Name of the resource
+    :param str filepath: Default file path of the resource
+    :return: The path of the resource
+    :raises Exception: if the resource is not found
+    """
     for path in Path(filepath).rglob('*.*'):
         if path.name.__contains__(name):
             return path
