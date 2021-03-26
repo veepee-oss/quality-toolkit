@@ -1,3 +1,11 @@
+## [1.0.3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.2...1.0.3) (2021-03-26)
+
+
+### Bug Fixes
+
+* **services:** add init file ([7f46d6d](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/7f46d6dcbf75cb7fc4892d29f0f1705b9a4bee5b))
+* **services:** use abstact class for base sql ([7d5f8a8](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/7d5f8a84d7f300550dcf3e52c41936a22fbf919d))
+
 ## [1.0.2](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.1...1.0.2) (2021-03-26)
 
 
