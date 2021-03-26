@@ -30,7 +30,10 @@ def get_timezone_paris(timezone = 'Europe/Paris'):
 
 def expected_value_test(context, value: str):
     """
+    Check if the context contain the expected value
 
+    :param str context: The context
+    :param str value: The expected value to find
     """
     if str(value).__contains__('context'):
         split_value = value.split('.')
