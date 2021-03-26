@@ -2,9 +2,11 @@
 Service PSQL
 """
 import logging
-from base_sql import BaseSql
+
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from quality_toolkit.services.base_sql import BaseSql
+
 
 class ConnectionPsql(BaseSql):
     """docstring for ConnectionPsql"""
