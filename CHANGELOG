@@ -1,0 +1,17 @@
+# 1.0.0 (2021-03-26)
+
+
+### Bug Fixes
+
+* **cicd:** change boolean value ([542806b](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/542806bdac12193c3d812d229a9c6f48f867c838))
+* **gitlab-ci:** install pgsql dependencies during the lint ([fcc1227](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/fcc1227afac87669fd994439ebdce4635593b52f))
+* **lint:** fix function documentation ([a7e5e70](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/a7e5e70aeb02b61edc4f938d973864cdd1341bbe))
+* **lint:** function documentation ([64257e4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/64257e4e61f8361335ee2861852390fbdfa2ace3))
+* **readme:** fix lint ([305f2ca](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/305f2ca4157918108ff27273e143b02dbd92ddbb))
+
+
+### Features
+
+* **cicd:** add cicd ([b47d18b](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/b47d18b2fe9e6380cd90d33e5c5415c3bbd4430a))
+* **project:** initialize ([2845bf1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/2845bf141b3b6ae4208dde12491c2f749efbff98))
+* **renovate:** add renovate file ([5b0b7a3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/5b0b7a373c5548abf42d8c8b7b677c76b2603440))
