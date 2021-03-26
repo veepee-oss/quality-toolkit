@@ -1,0 +1,42 @@
+---
+include:
+  - project: veepee/vptech/sre/iac/ci-cd/markdown-lint
+    ref: 1.2.2
+    file: gitlab-ci.yml
+  - project: veepee/vptech/sre/iac/ci-cd/semantic-release
+    ref: 3.2.1
+    file: gitlab-ci.yml
+  - project: veepee/vptech/sre/iac/ci-cd/python-build
+    ref: 2.0.1
+    file: gitlab-ci.yml
+  - project: veepee/vptech/sre/iac/ci-cd/python-lint
+    ref: 1.1.2
+    file: gitlab-ci.yml
+
+variables:
+  PYTHON_MODULE: quality_toolkit
+  APP_NAME: quality-toolkit
+  SEMANTIC_CONFIG_FILE: python
+  PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
+  REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
+
+stages:
+  - lint
+  - release
+  - build
+  - publish-python
+
+lint:python:
+  stage: lint
+  image: docker.registry.vptech.eu/vptech/linter:python
+  script:
+    # for pgsql
+    - apk add --no-cache postgresql-libs
+    - apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+    - if [ "${PYTHON_VEEPEE_REGISTRY_ENABLED:-true}" = "true" ]; then mkdir ~/.pip && echo -e "[global]\nindex-url = ${PYTHON_VEEPEE_REGISTRY:-https://registry.vptech.eu/artifactory/api/pypi/sre-pypi/simple}\n" | tee ~/.pip/pip.conf ; fi
+    - if [ -f "requirements.txt" ]; then pip install -r "requirements.txt"; else echo "No requirements found"; fi
+    - pylint $PYTHON_MODULE $PYTHON_LINT_EXTRA
+  except:
+    refs:
+      - master
+      - tags

@@ -29,7 +29,7 @@ and finish by install the project dependencies :
 pip3 install
 ```
 
-## How to use the classes ?
+## How to use the classes
 
 ### Helpers
 
@@ -56,8 +56,18 @@ from quality_toolkit.services.sso import Sso
 from resources.environment.sso import sso_env
 
 ...
-context.sso1 = Sso(sso_env.SERVER_URL, sso_env.REALM_NAME, sso_env.CLIENT_ID, sso_env.CLIENT_SECRET, sso_env.AUDIENCE)
-context.sso2 = Sso(sso_env.SERVER_URL, sso_env.REALM_NAME, sso_env.CLIENT_ID, sso_env.CLIENT_SECRET, sso_env.AUDIENCE)
+context.sso1 = Sso(
+    sso_env.SERVER_URL,
+    sso_env.REALM_NAME,
+    sso_env.CLIENT_ID,
+    sso_env.CLIENT_SECRET,
+    sso_env.AUDIENCE)
+context.sso2 = Sso(
+    sso_env.SERVER_URL,
+    sso_env.REALM_NAME,
+    sso_env.CLIENT_ID,
+    sso_env.CLIENT_SECRET,
+    sso_env.AUDIENCE)
 ...
 token1 = context.sso1.jwt_token()
 token2 = context.sso2.jwt_token()
