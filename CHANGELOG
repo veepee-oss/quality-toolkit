@@ -1,3 +1,10 @@
+## [1.0.5](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.4...1.0.5) (2021-03-29)
+
+
+### Bug Fixes
+
+* **services:** base sql commit error in execute_query ([32dab42](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/32dab42556c2c87d66215973bce85190d356314b))
+
 ## [1.0.4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.3...1.0.4) (2021-03-26)
 
 
