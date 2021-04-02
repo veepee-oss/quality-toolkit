@@ -10,3 +10,5 @@ psycopg2-binary~=2.8
 selenium~=3.141
 # SSO client
 python-keycloak-client~=0.2
+# SFTP
+pysftp
