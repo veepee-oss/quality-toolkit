@@ -5,10 +5,10 @@ pytz~=2021.1
 # MSSQL client
 python-tds~=1.10
 # Postgres client
-psycopg2-binary~=2.8
+psycopg2~=2.8
 # UI library
 selenium~=3.141
 # SSO client
 python-keycloak-client~=0.2
-# SFTP
-pysftp
+# SFTP client
+pysftp~=0.2

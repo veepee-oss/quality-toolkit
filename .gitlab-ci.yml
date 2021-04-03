@@ -29,5 +29,6 @@ stages:
 lint:python:
   before_script:
     # for pgsql
+    - pip install --upgrade pip
     - apk add --no-cache postgresql-libs
     - apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
