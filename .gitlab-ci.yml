@@ -35,10 +35,6 @@ lint:python:
     CRYPTOGRAPHY_DONT_BUILD_RUST: 1
 
 .debian:dependencies:
-  before_script:
-    # for pgsql
-    - apt-get update
-    - apt-get install -y libpq-dev python-dev
   variables:
     CRYPTOGRAPHY_DONT_BUILD_RUST: 1
 
