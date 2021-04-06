@@ -44,12 +44,17 @@ lint:python:
 
 publish-feature:python:
   extends:
+    - .python-publish
+    - .constraints-python:feature
     - .debian:dependencies
 
 delete-feature:python:
   extends:
+    - .constraints-python:feature
     - .debian:dependencies
 
 publish-release:python:
   extends:
+    - .python-publish
+    - .constraints-python:master
     - .debian:dependencies
