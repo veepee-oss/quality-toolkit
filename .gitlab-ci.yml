@@ -33,3 +33,28 @@ lint:python:
     - apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
   variables:
     CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+
+.debian:dependencies:
+  before_script:
+    # for pgsql
+    - apt-get update
+    - apt-get install -y libpq-dev python-dev
+  variables:
+    CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+
+publish-feature:python:
+  extends:
+    - .python-publish
+    - .constraints-python:feature
+    - .debian:dependencies
+
+delete-feature:python:
+  extends:
+    - .constraints-python:feature
+    - .debian:dependencies
+
+publish-release:python:
+  extends:
+    - .python-publish
+    - .constraints-python:master
+    - .debian:dependencies
