@@ -1,3 +1,17 @@
+# [1.2.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.1.0...1.2.0) (2021-04-06)
+
+
+### Bug Fixes
+
+* **gitlab-ci:** Failed building wheel for cryptography ([8903501](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/890350163b7937339278fcb0b9219c211ff2cd96))
+* **gitlab-ci:** Failed building wheel for cryptography ([d12fa5a](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/d12fa5ac67da9aaddecb08ccfe5e21a504313375))
+
+
+### Features
+
+* **gitlab-ci:** upgrade the python lint cicd version ([8d181b7](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/8d181b7db645aa9a6c37a8320b6489dea28de3ee))
+* **sftp:** add sftp client ([f4dbd2f](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/f4dbd2f5743d15b03accb3bebdfd09ed2bc8ff32))
+
 # [1.1.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.0.5...1.1.0) (2021-03-30)
 
 
