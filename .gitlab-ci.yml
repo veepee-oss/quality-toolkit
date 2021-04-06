@@ -34,26 +34,22 @@ lint:python:
   variables:
     CRYPTOGRAPHY_DONT_BUILD_RUST: 1
 
-publish-feature:python:
+.debian:dependencies:
   before_script:
     # for pgsql
     - apt-get update
     - apt-get install -y libpq-dev python-dev
   variables:
     CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+
+publish-feature:python:
+  extends:
+    - .debian:dependencies
 
 delete-feature:python:
-  before_script:
-    # for pgsql
-    - apt-get update
-    - apt-get install -y libpq-dev python-dev
-  variables:
-    CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+  extends:
+    - .debian:dependencies
 
 publish-release:python:
-  before_script:
-    # for pgsql
-    - apt-get update
-    - apt-get install -y libpq-dev python-dev
-  variables:
-    CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+  extends:
+    - .debian:dependencies
