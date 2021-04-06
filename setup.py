@@ -5,14 +5,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="quality-toolkit",
-    version="1.2.1",
+    version="1.2.2-beta.1",
     packages=find_packages(),
     entry_points={},
     install_requires=[
+        'psycopg2-binary~=2.8',
         'requests~=2.25',
         'pytz~=2021.1',
         'python-tds~=1.10',
-        'psycopg2~=2.8',
         'selenium~=3.141',
         'python-keycloak-client~=0.2',
         'pysftp~=0.2'],
