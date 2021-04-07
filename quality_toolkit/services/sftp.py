@@ -10,7 +10,7 @@ class Sftp():
         logging.getLogger('paramiko').setLevel(logging.WARNING)
         cnopts = pysftp.CnOpts()
         cnopts.hostkeys = None
-        self.sftp = pysftp.Connection(host, username, password, cnopts=cnopts)
+        self.sftp = pysftp.Connection(host=host, username=username, password=password, cnopts=cnopts)
 
     def upload_file(self, local_file, remote_path):
         """
