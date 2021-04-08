@@ -1,3 +1,10 @@
+## [1.2.3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.2...1.2.3) (2021-04-08)
+
+
+### Bug Fixes
+
+* **sftp:** force the variable name in the Connection ([3b029c0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/3b029c0fad155b3dcdc9776f1025f4d063090b01))
+
 ## [1.2.2](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.1...1.2.2) (2021-04-06)
 
 
