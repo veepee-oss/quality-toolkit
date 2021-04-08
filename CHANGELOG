@@ -1,3 +1,10 @@
+## [1.2.4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.3...1.2.4) (2021-04-08)
+
+
+### Bug Fixes
+
+* **sso:** the audience is not required ([31e2de4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/31e2de4aaef7fbabe169f76aa7ba1157ca69a89c))
+
 ## [1.2.3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.2...1.2.3) (2021-04-08)
 
 
