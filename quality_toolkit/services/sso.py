@@ -10,7 +10,7 @@ from keycloak.realm import KeycloakRealm
 logger = logging.getLogger('sso')
 
 class Sso():
-    def __init__(self, server_url, realm_name, client_id, client_secret, audience):
+    def __init__(self, server_url, realm_name, client_id, client_secret, audience=None):
         self._realm=KeycloakRealm(
             server_url,
             realm_name,
