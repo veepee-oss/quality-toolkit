@@ -1,3 +1,10 @@
+# [1.3.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.4...1.3.0) (2021-04-15)
+
+
+### Features
+
+* **browser:** add edge browser webdriver ([547ce38](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/547ce3867717c5a397bc75af4131aff6263e8783))
+
 ## [1.2.4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.3...1.2.4) (2021-04-08)
 
 
