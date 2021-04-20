@@ -12,10 +12,9 @@ def install_chrome_driver(context):
     options = webdriver.ChromeOptions()
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-setuid-sandbox")
-    options.add_argument("--disable-dev-shm-using")
+    options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
     options.add_argument("--disable-gpu")
-    options.add_argument("disable-infobars")
     if context.config.userdata['browser_headless'] == 'true':
         options.add_argument("--headless")
     return webdriver.Remote(context.config.userdata['browser_url'], options=options)
