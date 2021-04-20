@@ -1,3 +1,11 @@
+## [1.3.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.3.0...1.3.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **chrome driver:** remove disable-infobars that is useless ([89c013d](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/89c013d875f65108ac9607781e63266c666f7e22))
+* **chrome driver:** replace --disable-dev-shm-using by --disable-dev-shm-usage ([f95afb6](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/f95afb69f27cf6c84590c44b5afd5294579a2054))
+
 # [1.3.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.2.4...1.3.0) (2021-04-15)
 
 
