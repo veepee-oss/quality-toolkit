@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="quality-toolkit",
-    version="1.3.1-beta.2",
+    version="1.3.1",
     packages=find_packages(),
     entry_points={},
     install_requires=[
