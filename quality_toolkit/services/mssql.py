@@ -13,7 +13,7 @@ class ConnectionMssql(BaseSql):
 
     def __init__(self, db_config):
         logging.debug("db_config: %s", db_config)
-        self.connection = pytds.connect(**db_config, as_dict=True)
+        self.connection = pytds.connect(**db_config, as_dict=True, autocommit=True)
         self.cursor = self.connection.cursor()
 
     def execute_script(self, script_name, script_path='resources/scripts/', params=None):
