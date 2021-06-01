@@ -26,7 +26,10 @@ class ConnectionMssql(BaseSql):
 
     def execute_ps(self, ps_name, params=None):
         logging.debug("execute_ps, ps_name: %s, params: %s", ps_name, params)
-        self.cursor.callproc(ps_name) if params is None else self.cursor.callproc(ps_name, params)
+        if params is None:
+            self.cursor.callproc(ps_name)
+        else:
+            self.cursor.callproc(ps_name, params)
         self.connection.commit()
         return self.cursor.fetchone()
 
