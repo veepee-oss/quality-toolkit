@@ -1,5 +1,5 @@
 # Postgres client
-psycopg2-binary==2.9.2
+psycopg2-binary==2.9.3
 # Curl client
 requests==2.26.0
 # Timezone library
