@@ -1,7 +1,7 @@
 # Postgres client
 psycopg2-binary==2.9.3
 # Curl client
-requests==2.26.0
+requests==2.27.0
 # Timezone library
 pytz==2021.3
 # MSSQL client
