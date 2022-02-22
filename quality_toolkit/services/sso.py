@@ -11,7 +11,7 @@ logger = logging.getLogger('sso')
 
 
 class Sso():
-    def __init__(self, server_url, realm_name, client_id, client_secret, audience=None, username=None, password=None):
+    def __init__(self, server_url, realm_name, client_id, client_secret, **kwargs):
         self._realm = KeycloakRealm(
             server_url,
             realm_name,
@@ -21,9 +21,10 @@ class Sso():
             client_secret,
         )
 
-        self._username = username
-        self._password = password
-        self._audience = audience
+        self._username = kwargs.get('username', None)
+        self._password = kwargs.get('password', None)
+        self._audience = kwargs.get('audience', None)
+
         self._access_token = None
         self._access_token_expire_datetime = None
         self._refresh_token = None
