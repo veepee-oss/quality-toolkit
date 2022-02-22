@@ -9,18 +9,21 @@ from keycloak.realm import KeycloakRealm
 
 logger = logging.getLogger('sso')
 
+
 class Sso():
-    def __init__(self, server_url, realm_name, client_id, client_secret, audience=None):
-        self._realm=KeycloakRealm(
+    def __init__(self, server_url, realm_name, client_id, client_secret, audience=None, username=None, password=None):
+        self._realm = KeycloakRealm(
             server_url,
             realm_name,
         )
-        self._open_id_connect=self._realm.open_id_connect(
+        self._open_id_connect = self._realm.open_id_connect(
             client_id,
             client_secret,
         )
 
-        self._audience=audience
+        self._username = username
+        self._password = password
+        self._audience = audience
         self._access_token = None
         self._access_token_expire_datetime = None
         self._refresh_token = None
@@ -34,27 +37,40 @@ class Sso():
 
         self._access_token = payload_access_token['access_token']
         self._refresh_token = payload_access_token['refresh_token']
-        self._access_token_expire_datetime = datetime.now() + timedelta(seconds=payload_access_token['expires_in'])
+        self._access_token_expire_datetime = datetime.now(
+        ) + timedelta(seconds=payload_access_token['expires_in'])
 
     def __refresh_access_token(self):
         logger.info('Refresh the access token')
 
-        payload_refresh_access_token = self._open_id_connect.refresh_token(refresh_token=self._refresh_token)
+        payload_refresh_access_token = self._open_id_connect.refresh_token(
+            refresh_token=self._refresh_token)
 
         self._access_token = payload_refresh_access_token['access_token']
         self._refresh_token = payload_refresh_access_token['refresh_token']
-        self._access_token_expire_datetime = datetime.now() + timedelta(seconds=payload_refresh_access_token['expires_in'])
+        self._access_token_expire_datetime = datetime.now(
+        ) + timedelta(seconds=payload_refresh_access_token['expires_in'])
 
     def __refresh_jwt_token(self):
         logger.info('Refresh the jwt token')
 
-        payload_jwt_token = self._open_id_connect.token_exchange(
-            subject_token=self._access_token,
-            audience=self._audience,
-        )
+        payload_jwt_token = None
+
+        if self._username is not None:
+            payload_jwt_token = self._open_id_connect.password_credentials(
+                username=self._username,
+                password=self._password,
+            )
+
+        if payload_jwt_token is None:
+            payload_jwt_token = self._open_id_connect.token_exchange(
+                subject_token=self._access_token,
+                audience=self._audience,
+            )
 
         self._jwt_token = payload_jwt_token['access_token']
-        self._jwt_token_expire_datetime = datetime.now() + timedelta(seconds=payload_jwt_token['expires_in'])
+        self._jwt_token_expire_datetime = datetime.now(
+        ) + timedelta(seconds=payload_jwt_token['expires_in'])
 
     def jwt_token(self):
         """
