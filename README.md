@@ -63,13 +63,14 @@ context.sso1 = Sso(
     sso_env.REALM_NAME,
     sso_env.CLIENT_ID,
     sso_env.CLIENT_SECRET,
-    sso_env.AUDIENCE)
+    audience = sso_env.AUDIENCE)
 context.sso2 = Sso(
     sso_env.SERVER_URL,
     sso_env.REALM_NAME,
     sso_env.CLIENT_ID,
     sso_env.CLIENT_SECRET,
-    sso_env.AUDIENCE)
+    username = sso_env.USERNAME,
+    password = sso_env.USERNAME)
 ...
 token1 = context.sso1.jwt_token()
 token2 = context.sso2.jwt_token()
