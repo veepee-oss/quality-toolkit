@@ -11,7 +11,7 @@ setup(
     install_requires=[
         'psycopg2-binary~=2.8',
         'requests~=2.25',
-        'pytz~=2021.1',
+        'pytz~=2022.1',
         'python-tds~=1.10',
         'selenium~=4.1.0',
         'python-keycloak-client~=0.2',
