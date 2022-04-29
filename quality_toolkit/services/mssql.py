@@ -4,6 +4,7 @@ Service MSSQL
 import logging
 
 import pytds
+
 from quality_toolkit.helpers.local_functions import find_resource
 from quality_toolkit.services.base_sql import BaseSql
 
