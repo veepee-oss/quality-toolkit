@@ -4,7 +4,7 @@ include:
     ref: 1.4.0
     file: gitlab-ci.yml
   - project: veepee/vptech/sre/iac/ci-cd/semantic-release
-    ref: 3.12.0
+    ref: 4.0.0
     file: gitlab-ci.yml
   - project: veepee/vptech/sre/iac/ci-cd/python-build
     ref: 2.4.0
