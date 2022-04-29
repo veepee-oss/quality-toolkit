@@ -1,16 +1,16 @@
 """
 Service SSO
 """
-import logging
 import datetime
-
+import logging
 from datetime import datetime, timedelta
+
 from keycloak.realm import KeycloakRealm
 
 logger = logging.getLogger('sso')
 
 
-class Sso():
+class Sso:
     def __init__(self, server_url, realm_name, client_id, client_secret, **kwargs):
         self._realm = KeycloakRealm(
             server_url,

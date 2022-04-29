@@ -4,7 +4,7 @@ from pathlib import Path
 import pysftp
 
 
-class Sftp():
+class Sftp:
 
     def __init__(self, host, username, password):
         logging.getLogger('paramiko').setLevel(logging.WARNING)
