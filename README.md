@@ -44,7 +44,7 @@ from quality_toolkit.helpers.api_functions import send_api_request
 from resources.environment import urls
 
 ...
-context.response = send_api_request("GET", urls.MY_API_URL, [200])
+context.response = send_api_request("GET", urls.MY_API_URL)
 ...
 ```
 
