@@ -7,7 +7,7 @@ include:
     ref: 4.0.0
     file: gitlab-ci.yml
   - project: veepee/vptech/sre/iac/ci-cd/python-build
-    ref: 2.4.0
+    ref: 2.4.1
     file: gitlab-ci.yml
   - project: veepee/vptech/sre/iac/ci-cd/python-lint
     ref: 1.5.1
