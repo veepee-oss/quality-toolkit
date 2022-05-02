@@ -3,7 +3,9 @@ All methods link to APIs
 """
 import logging
 import time
+
 import requests
+
 
 def send_api_request(method, url, status_code=None, nb_retry=5, wait_time=10, **kwargs):
     """Constructs and sends a :class:`Request <Request>`.

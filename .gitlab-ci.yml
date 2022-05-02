@@ -1,7 +1,7 @@
 ---
 include:
-  - project: veepee/vptech/sre/iac/ci-cd/markdown-lint
-    ref: 1.4.0
+  - project: veepee/vptech/ci-cd/markdown-lint
+    ref: 1.1.3
     file: gitlab-ci.yml
   - project: veepee/vptech/sre/iac/ci-cd/semantic-release
     ref: 4.0.0
