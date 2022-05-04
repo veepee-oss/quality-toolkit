@@ -31,48 +31,9 @@ and finish by install the project dependencies :
 pip3 install
 ```
 
-## How to use the classes
+## How to use the lib
 
-### Helpers
+See the list of available componants :
 
-This library share functions that help to build a steps
-
-example :
-
-```python
-from quality_toolkit.helpers.api_functions import send_api_request
-from resources.environment import urls
-
-...
-context.response = send_api_request("GET", urls.MY_API_URL)
-...
-```
-
-### Services
-
-This library share services that give customize clients
-
-```python
-from quality_toolkit.services.sso import Sso
-# Create your own resources for your application
-from resources.environment.sso import sso_env
-
-...
-context.sso1 = Sso(
-    sso_env.SERVER_URL,
-    sso_env.REALM_NAME,
-    sso_env.CLIENT_ID,
-    sso_env.CLIENT_SECRET,
-    audience = sso_env.AUDIENCE)
-context.sso2 = Sso(
-    sso_env.SERVER_URL,
-    sso_env.REALM_NAME,
-    sso_env.CLIENT_ID,
-    sso_env.CLIENT_SECRET,
-    username = sso_env.USERNAME,
-    password = sso_env.USERNAME)
-...
-token1 = context.sso1.jwt_token()
-token2 = context.sso2.jwt_token()
-...
-```
+* [Helpers](docs/helpers.md)
+* [Services](docs/services.md)
