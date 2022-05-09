@@ -1,3 +1,10 @@
+## [1.7.2](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.7.1...1.7.2) (2022-05-09)
+
+
+### Bug Fixes
+
+* **response_message:** decode error when it is not bytes ([c0f1c15](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/c0f1c15530528d9aee1a8a598bb760ca3e21944c))
+
 ## [1.7.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.7.0...1.7.1) (2022-05-04)
 
 
