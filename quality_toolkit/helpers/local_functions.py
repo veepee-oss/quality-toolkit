@@ -63,12 +63,12 @@ def response_message(message, response, password=False, truncate_content=0, trun
     if not password:
         header = f"{response.request.headers}"
     if response.request.body is not None:
-        body = response.request.body.decode('utf-8')
+        body = response.request.body.decode('utf-8') if isinstance(response.request.body, (bytes, bytearray)) else response.request.body
         if truncate_body != 0:
-            body = response.request.body.decode('utf-8')[0:truncate_body]
-    content = response.content.decode('utf-8')
+            body = body[0:truncate_body]
+    content = response.content.decode('utf-8') if isinstance(response.content, (bytes, bytearray)) else response.content
     if truncate_content != 0:
-        content = response.content.decode('utf-8')[0:truncate_content]
+        content = content[0:truncate_content]
     return f"{message},\n\t" \
            f"- code: {response.status_code}\n\t" \
            f"- content: {content}\n\t" \
