@@ -1,3 +1,10 @@
+# [1.8.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.7.2...1.8.0) (2022-05-25)
+
+
+### Features
+
+* **response_message:** improve truncate ([38133d3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/38133d3d7d92e1854d6fed14e002a76df4134a61))
+
 ## [1.7.2](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.7.1...1.7.2) (2022-05-09)
 
 
