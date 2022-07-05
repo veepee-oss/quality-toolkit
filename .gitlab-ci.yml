@@ -9,9 +9,6 @@ include:
   - project: veepee/vptech/sre/iac/ci-cd/python-build
     ref: 2.4.1
     file: gitlab-ci.yml
-  - project: veepee/vptech/sre/iac/ci-cd/python-lint
-    ref: 1.5.1
-    file: gitlab-ci.yml
 
 variables:
   PYTHON_MODULE: quality_toolkit
@@ -27,12 +24,12 @@ stages:
   - publish-python
 
 lint:python:
-  before_script:
-    # for pgsql
-    - apk add --no-cache postgresql-libs
-    - apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
-  variables:
-    CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+  stage: lint
+  image: docker.registry.vptech.eu/vptech/python:latest
+  script:
+    - pip install pylint==2.13.9
+    - if [ -f "requirements.txt" ]; then pip install -r "requirements.txt"; else echo "No requirements found"; fi
+    - pylint -f json --rcfile=.pylintrc $PYTHON_MODULE
 
 .debian:dependencies:
   variables:

@@ -30,25 +30,6 @@ def get_timezone_paris(timezone='Europe/Paris'):
     return datetime.now(tz)
 
 
-def expected_value_test(context, value: str):
-    """
-    Check if the context contain the expected value
-    :param str context: The context
-    :param str value: The expected value to find
-    """
-    if str(value).__contains__('context'):
-        split_value = value.split('.')
-        expected_value = context.__getattr__(split_value[1])
-        if len(split_value) > 2:
-            for i in range(2, len(split_value)):
-                expected_value = expected_value[split_value[i] if not split_value[i].isnumeric() else int(split_value[i])]
-        return expected_value
-    if str(value) == '0<' or str(value).__contains__('>'):
-        return ""
-    else:
-        return value
-
-
 def response_message(message, response, password=False, truncate_content=0, truncate_body=0):
     """
     Show the response with all information to have a better debug

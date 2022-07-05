@@ -19,7 +19,7 @@ class ConnectionMssql(BaseSql):
 
     def execute_script(self, script_name, script_path='resources/scripts/', params=None):
         logging.debug("execute_script, script: %s%s, params: %s", script_path, script_name, params)
-        with open(find_resource(script_name, script_path), 'r') as script:
+        with open(find_resource(script_name, script_path), 'r', encoding='UTF-8') as script:
             query = script.read() if params is None else script.read() % params
             self.cursor.execute(query)
             self.connection.commit()
