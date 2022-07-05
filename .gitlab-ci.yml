@@ -27,7 +27,7 @@ lint:python:
   stage: lint
   image: docker.registry.vptech.eu/vptech/python:latest
   script:
-    - pip install pylint
+    - pip install pylint==2.13.9
     - if [ -f "requirements.txt" ]; then pip install -r "requirements.txt"; else echo "No requirements found"; fi
     - pylint -f json --rcfile=.pylintrc $PYTHON_MODULE
 
