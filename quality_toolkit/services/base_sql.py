@@ -15,13 +15,13 @@ class BaseSql(ABC):
         """
         retry = 1 if nb_retry > 0 else 0
         while retry <= nb_retry:
-            logging.debug("%s/%s - fetch_all, query: %s, params: %s", retry, nb_retry, query, params)
+            logging.debug(f"{retry}/{nb_retry} - fetch_all, query: {query}, params: {params}")
             self.cursor.execute(query, params)
             result = self.cursor.fetchall()
             if result is not None and result:
                 return result
             if retry > nb_retry:
-                log = 'error executing query "{}"'.format(query)
+                log = f'error executing query "{query}"'
                 logging.error(log)
                 break
             retry += 1
@@ -33,13 +33,13 @@ class BaseSql(ABC):
         """
         retry = 1 if nb_retry > 0 else 0
         while retry <= nb_retry:
-            logging.debug("%s/%s - fetch_one, query: %s, params: %s", retry, nb_retry, query, params)
+            logging.debug(f"{retry}/{nb_retry} - fetch_all, query: {query}, params: {params}")
             self.cursor.execute(query, params)
             result = self.cursor.fetchone()
             if result is not None and result:
                 return result
             if retry > nb_retry:
-                log = 'error executing query "{}"'.format(query)
+                log = f'error executing query "{query}"'
                 logging.error(log)
                 break
             retry += 1

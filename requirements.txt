@@ -13,4 +13,4 @@ python-keycloak-client==0.2.3
 # SFTP client
 pysftp==0.2.9
 # playwright
-playwright
+playwright==1.23.0
