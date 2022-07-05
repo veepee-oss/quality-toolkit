@@ -13,7 +13,7 @@ setup(
         'requests~=2.25',
         'pytz~=2022.1',
         'python-tds~=1.10',
-        'selenium~=4.1.0',
+        'selenium~=4.3.0',
         'python-keycloak-client~=0.2',
         'pysftp~=0.2',
         'playwright~=1.23.0'],
