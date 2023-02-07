@@ -28,68 +28,58 @@ class Sso:
         self._access_token = None
         self._access_token_expire_datetime = None
         self._refresh_token = None
-        self._jwt_token = None
-        self._jwt_token_expire_datetime = None
 
-    def __init_access_token(self):
-        logger.info('Init the access token')
-
-        payload_access_token = self._open_id_connect.client_credentials()
-
-        self._access_token = payload_access_token['access_token']
-        self._refresh_token = payload_access_token['refresh_token']
-        self._access_token_expire_datetime = datetime.now(
-        ) + timedelta(seconds=payload_access_token['expires_in'])
-
-    def __refresh_access_token(self):
-        logger.info('Refresh the access token')
-
-        payload_refresh_access_token = self._open_id_connect.refresh_token(
-            refresh_token=self._refresh_token)
-
-        self._access_token = payload_refresh_access_token['access_token']
-        self._refresh_token = payload_refresh_access_token['refresh_token']
-        self._access_token_expire_datetime = datetime.now(
-        ) + timedelta(seconds=payload_refresh_access_token['expires_in'])
-
-    def __refresh_jwt_token(self):
-        logger.info('Refresh the jwt token')
-
-        payload_jwt_token = None
-
+    def __access_token(self):
         if self._username is not None:
-            payload_jwt_token = self._open_id_connect.password_credentials(
+            logger.info('Get access token: grant by password')
+            access_token_payload = self._open_id_connect.password_credentials(
                 username=self._username,
                 password=self._password,
             )
+            self._access_token = access_token_payload['access_token']
+            self._refresh_token = access_token_payload['refresh_token']
+            self._access_token_expire_datetime = datetime.now(
+            ) + timedelta(seconds=access_token_payload['expires_in'])
+        else:
+            logger.info('Get access token: grant by client_credentials')
+            client_credentials_payload = self._open_id_connect.client_credentials()
+            self._access_token = client_credentials_payload['access_token']
+            self._access_token_expire_datetime = datetime.now(
+            ) + timedelta(seconds=client_credentials_payload['expires_in'])
 
-        if payload_jwt_token is None:
-            payload_jwt_token = self._open_id_connect.token_exchange(
-                subject_token=self._access_token,
-                audience=self._audience,
-            )
+            if self._audience is not None:
+                logger.info('Get access token: grant by token-exchange')
+                token_exchange_payload = self._open_id_connect.token_exchange(
+                    subject_token=self._access_token,
+                    audience=self._audience,
+                )
+                self._access_token = token_exchange_payload['access_token']
+                self._access_token_expire_datetime = datetime.now(
+                ) + timedelta(seconds=token_exchange_payload['expires_in'])
 
-        self._jwt_token = payload_jwt_token['access_token']
-        self._jwt_token_expire_datetime = datetime.now(
-        ) + timedelta(seconds=payload_jwt_token['expires_in'])
+    def __refresh_access_token(self):
+        if self._username is not None:
+            logger.info('Refresh the access token: grant by refresh_token')
+            refresh_access_token_payload = self._open_id_connect.refresh_token(
+                refresh_token=self._refresh_token)
+            self._access_token = refresh_access_token_payload['access_token']
+            self._refresh_token = refresh_access_token_payload['refresh_token']
+            self._access_token_expire_datetime = datetime.now(
+            ) + timedelta(seconds=refresh_access_token_payload['expires_in'])
+        else:
+            self.__access_token()
 
     def jwt_token(self):
         """
         Refresh jwt token if necessary and return it
         """
         if self._access_token is None:
-            self.__init_access_token()
+            self.__access_token()
 
         if self._access_token is not None and self._access_token_expire_datetime < datetime.now():
             self.__refresh_access_token()
 
-        if self._jwt_token is None:
-            self.__refresh_jwt_token()
-
-        if self._jwt_token is not None and self._jwt_token_expire_datetime < datetime.now():
-            self.__refresh_jwt_token()
-
-        return self._jwt_token
+        return self._access_token
 
     def logout(self):
         """
