@@ -29,7 +29,7 @@ class Sso:
         self._access_token_expire_datetime = None
         self._refresh_token = None
 
-    def __access_token(self):
+    def __initialize_access_token(self):
         if self._username is not None:
             logger.info('Get access token: grant by password')
             access_token_payload = self._open_id_connect.password_credentials(
@@ -67,14 +67,14 @@ class Sso:
             self._access_token_expire_datetime = datetime.now(
             ) + timedelta(seconds=refresh_access_token_payload['expires_in'])
         else:
-            self.__access_token()
+            self.__initialize_access_token()
 
     def jwt_token(self):
         """
         Refresh jwt token if necessary and return it
         """
         if self._access_token is None:
-            self.__access_token()
+            self.__initialize_access_token()
 
         if self._access_token is not None and self._access_token_expire_datetime < datetime.now():
             self.__refresh_access_token()
