@@ -1,3 +1,18 @@
+## [2.0.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.0.0...2.0.1) (2023-02-22)
+
+
+### Bug Fixes
+
+* use refresh_token only for grant password_credentials ([3224a1f](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/3224a1f4b33ed0532038ac9b74ff9d74cc969ab7))
+
+
+### Chores
+
+* **deps:** update dependency playwright to v1.24.0 ([1a70ab4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/1a70ab46b3f37cfb73aefe8a7d4de97dfeabec60))
+* **deps:** update dependency requests to v2.28.1 ([2c625b4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/2c625b48057a92e37d01b85e34f24e920dc5b226))
+* **deps:** update dependency selenium to v4.3.0 ([6d4242a](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/6d4242a0d2002acf01c5b87eed493ecfa4863a89))
+* **deps:** update dependency veepee/vptech/ci-cd/markdown-lint to v1.2.1 ([47fbc04](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/47fbc048fc87b55400a446ca2590b156232cc204))
+
 # [2.0.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/1.8.0...2.0.0) (2022-07-05)
 
 
