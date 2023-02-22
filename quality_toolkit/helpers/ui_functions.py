@@ -4,7 +4,6 @@ All methods link to the ui
 from playwright.async_api import async_playwright
 from playwright.sync_api import sync_playwright
 from selenium import webdriver
-from selenium.webdriver.opera import options as opera_options
 
 
 def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
@@ -16,7 +15,8 @@ def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
             Either a string representing URL of the remote server or a custom
             remote_connection.RemoteConnection object. Defaults to 'http://127.0.0.1:4444/wd/hub'.
         browser: str
-            Define which type of browser instantiate possible value chrome, firefox, opera, edge
+            Define which type of browser instantiate possible value chrome, firefox, edge
+            Opera is not supported by selenium: https://github.com/robotframework/SeleniumLibrary/pull/1782
             by default chrome
         headless: bool
             Set headless option only available for chrome and firefox
@@ -26,9 +26,6 @@ def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
         options = webdriver.FirefoxOptions()
         if headless:
             options.add_argument("--headless")
-        return webdriver.Remote(remote_url, options=options)
-    elif browser == 'opera':
-        options = opera_options.Options()
         return webdriver.Remote(remote_url, options=options)
     elif browser == 'edge':
         cap = {'browserName': 'MicrosoftEdge'}
