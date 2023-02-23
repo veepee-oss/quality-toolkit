@@ -31,24 +31,3 @@ lint:python:
   image: docker.registry.vptech.eu/vptech/python:latest
   before_script:
     - pip install pylint==2.13.9
-
-.debian:dependencies:
-  variables:
-    CRYPTOGRAPHY_DONT_BUILD_RUST: 1
-
-publish-feature:python:
-  extends:
-    - .python-publish
-    - .constraints-python:feature
-    - .debian:dependencies
-
-delete-feature:python:
-  extends:
-    - .constraints-python:feature
-    - .debian:dependencies
-
-publish-release:python:
-  extends:
-    - .python-publish
-    - .constraints-python:master
-    - .debian:dependencies
