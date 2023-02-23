@@ -116,8 +116,8 @@ disable=
     ungrouped-imports,
     unnecessary-lambda,
     no-else-return,
-
-
+    no-member,
+    differing-param-doc
 
 [REPORTS]
 
