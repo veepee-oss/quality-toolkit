@@ -19,15 +19,11 @@ stages:
   - publish-python
 
 variables:
-  PYTHON_MODULE: quality_toolkit
+  PYTHON_MODULE: "-f json --rcfile=.pylintrc  quality_toolkit"
   APP_NAME: quality-toolkit
   SEMANTIC_CONFIG_FILE: python
   PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
   REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
-
-lint:python:
-  stage: lint
-  image: docker.registry.vptech.eu/vptech/python:latest
 
 .debian:dependencies:
   variables:
