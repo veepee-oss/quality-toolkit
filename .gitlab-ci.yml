@@ -25,6 +25,10 @@ variables:
   PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
   REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
 
+lint:python:
+  stage: lint
+  image: docker.registry.vptech.eu/vptech/python:latest
+
 .debian:dependencies:
   variables:
     CRYPTOGRAPHY_DONT_BUILD_RUST: 1
