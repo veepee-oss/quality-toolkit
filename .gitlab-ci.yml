@@ -9,11 +9,13 @@ include:
   - project: veepee/vptech/ci-cd/semantic-release
     ref: 2-latest
     file: gitlab-ci.yml
+  - project: veepee/vptech/ci-cd/python-lint
+    ref: 1-latest
+    file: gitlab-ci.yml
 
 stages:
   - lint
   - release
-  - build
   - publish-python
 
 variables:
@@ -22,32 +24,3 @@ variables:
   SEMANTIC_CONFIG_FILE: python
   PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
   REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
-
-lint:python:
-  stage: lint
-  image: docker.registry.vptech.eu/vptech/python:latest
-  script:
-    - pip install pylint==2.13.9
-    - if [ -f "requirements.txt" ]; then pip install -r "requirements.txt"; else echo "No requirements found"; fi
-    - pylint -f json --rcfile=.pylintrc $PYTHON_MODULE
-
-.debian:dependencies:
-  variables:
-    CRYPTOGRAPHY_DONT_BUILD_RUST: 1
-
-publish-feature:python:
-  extends:
-    - .python-publish
-    - .constraints-python:feature
-    - .debian:dependencies
-
-delete-feature:python:
-  extends:
-    - .constraints-python:feature
-    - .debian:dependencies
-
-publish-release:python:
-  extends:
-    - .python-publish
-    - .constraints-python:master
-    - .debian:dependencies
