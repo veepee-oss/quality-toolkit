@@ -5,6 +5,8 @@ from playwright.async_api import async_playwright
 from playwright.sync_api import sync_playwright
 from selenium import webdriver
 
+import logging
+
 
 def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
     """
@@ -42,7 +44,38 @@ def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
         return webdriver.Remote(remote_url, options=options)
 
 
-def install_sync_playwright(browser='chrome', **kwargs):
+def initialize_sync_playwright(context):
+    """
+    Sync method to initialize context.browser with playwright
+    Parameters
+    ------
+        context: behave context
+    """
+    logging.info(
+        f"Initialize playwright - userdata browser: {context.config.userdata['browser']}")
+    headless = bool(context.config.userdata['browser_headless'] == 'true')
+    if context.config.userdata['browser'] not in ['chrome', 'firefox']:
+        raise TypeError(
+            f"The browser '{context.config.userdata['browser']}' is not handle. ")
+    context.browser = __install_sync_playwright(
+        browser=context.config.userdata['browser'], headless=headless)
+    assert context.browser is not None, "Failed to initialize the sync driver"
+    logging.info(f"Initialize playwright - Context browser: {context.browser}")
+
+
+async def initialize_async_playwright(context):
+    logging.info(
+        f"Initialize playwright - userdata browser: {context.config.userdata['browser']}")
+    headless = bool(context.config.userdata['browser_headless'] == 'true')
+    if context.config.userdata['browser'] not in ['chrome', 'firefox']:
+        raise TypeError(
+            f"The browser '{context.config.userdata['browser']}' is not handle. ")
+    context.browser = await __install_async_playwright(browser=context.config.userdata['browser'], headless=headless)
+    assert context.browser is not None, "Failed to initialize the async driver"
+    logging.info(f"Initialize playwright - Context browser: {context.browser}")
+
+
+def __install_sync_playwright(browser='chrome', **kwargs):
     """
     Method to install sync playwright browser
     Parameters
@@ -107,7 +140,7 @@ def install_sync_playwright(browser='chrome', **kwargs):
         return playwright.chromium.launch(**kwargs)
 
 
-async def install_async_playwright(browser='chrome', **kwargs):
+async def __install_async_playwright(browser='chrome', **kwargs):
     """
    Method to install async playwright browser
    Parameters
