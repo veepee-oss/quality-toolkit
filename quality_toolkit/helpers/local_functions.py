@@ -32,12 +32,12 @@ def find_resource(name: str, filepath='resources/'):
     :param str name: Name of the resource
     :param str filepath: Default file path of the resource
     :return: The path of the resource
-    :raises Exception: if the resource is not found
+    :raises FileNotFoundError: if the resource is not found
     """
     for path in Path(filepath).rglob('*.*'):
-        if path.name.__contains__(name):
+        if name in path.name:
             return path
-    raise Exception("File not found")
+    raise FileNotFoundError("File not found")
 
 
 def import_recurcively_modules(path_file):
