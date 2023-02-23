@@ -4,7 +4,7 @@ include:
     ref: 1-latest
     file: gitlab-ci.yml
   - project: veepee/vptech/ci-cd/python-build
-    ref: 3-latest
+    ref: 2-latest
     file: gitlab-ci.yml
   - project: veepee/vptech/ci-cd/semantic-release
     ref: 2-latest
@@ -50,5 +50,5 @@ delete-feature:python:
 publish-release:python:
   extends:
     - .python-publish
-    - .constraints-python:main
+    - .constraints-python:master
     - .debian:dependencies
