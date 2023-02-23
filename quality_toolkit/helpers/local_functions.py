@@ -4,8 +4,8 @@ All methods link to the local environment
 from datetime import datetime
 from pathlib import Path
 
-import pytz
 import pkgutil
+import pytz
 
 
 def compare_values(symbol, arg1, arg2):
@@ -76,13 +76,15 @@ def response_message(message, response, password=False, truncate_content=0, trun
     if not password:
         header = f"{response.request.headers}"
     if response.request.body is not None:
-        body = response.request.body.decode('utf-8') if isinstance(response.request.body, (bytes, bytearray)) else response.request.body
+        body = response.request.body.decode(
+            'utf-8') if isinstance(response.request.body, (bytes, bytearray)) else response.request.body
         if truncate_body != -1:
             if truncate_body != 0:
                 body = body[0:truncate_body]
         else:
             body = "Don't want to show the body."
-    content = response.content.decode('utf-8') if isinstance(response.content, (bytes, bytearray)) else response.content
+    content = response.content.decode(
+        'utf-8') if isinstance(response.content, (bytes, bytearray)) else response.content
     if truncate_content != -1:
         if truncate_content != 0:
             content = content[0:truncate_content]
