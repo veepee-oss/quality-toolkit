@@ -5,6 +5,25 @@ from datetime import datetime
 from pathlib import Path
 
 import pytz
+import pkgutil
+
+
+def compare_values(symbol, arg1, arg2):
+    """Compare two values for equality. Return a Syntax Error if the symbol is not found"""
+    arg1 = int(arg1)
+    arg2 = int(arg2)
+    if symbol == "==":
+        return arg1 == arg2
+    elif symbol == "<":
+        return arg1 < arg2
+    elif symbol == "<=":
+        return arg1 <= arg2
+    elif symbol == ">=":
+        return arg1 >= arg2
+    elif symbol == ">":
+        return arg1 > arg2
+
+    raise SyntaxError('Symbol variable in argument not found')
 
 
 def find_resource(name: str, filepath='resources/'):
@@ -19,6 +38,19 @@ def find_resource(name: str, filepath='resources/'):
         if path.name.__contains__(name):
             return path
     raise Exception("File not found")
+
+
+def import_recurcively_modules(path_file):
+    """
+    Import all modules in a package
+    >>> import_recurcively_modules(os.path.dirname(__file__))
+    """
+    __all__ = []
+    path = [path_file]
+    for loader, module_name, _ in pkgutil.walk_packages(path):
+        __all__.append(module_name)
+        _module = loader.find_module(module_name).load_module(module_name)
+        globals()[module_name] = _module
 
 
 def get_timezone_paris(timezone='Europe/Paris'):
