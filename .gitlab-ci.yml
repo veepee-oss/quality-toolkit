@@ -30,4 +30,4 @@ lint:python:
   stage: lint
   image: docker.registry.vptech.eu/vptech/python:latest
   before_script:
-    - pip install pylint==2.13.9
+    - pip install pylint==2.16.2
