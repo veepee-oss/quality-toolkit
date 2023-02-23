@@ -19,7 +19,8 @@ stages:
   - publish-python
 
 variables:
-  PYTHON_MODULE: "-f json --rcfile=.pylintrc quality_toolkit"
+  PYTHON_MODULE: "quality_toolkit"
+  PYTHON_LINT_EXTRA: "-f json --rcfile=.pylintrc"
   APP_NAME: quality-toolkit
   SEMANTIC_CONFIG_FILE: python
   PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
