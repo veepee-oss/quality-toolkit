@@ -4,7 +4,7 @@ include:
     ref: 1-latest
     file: gitlab-ci.yml
   - project: veepee/vptech/ci-cd/python-build
-    ref: 2-latest
+    ref: 3-latest
     file: gitlab-ci.yml
   - project: veepee/vptech/ci-cd/semantic-release
     ref: 2-latest
