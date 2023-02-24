@@ -49,7 +49,7 @@ def initialize_sync_playwright(context):
     Sync method to initialize context.browser with playwright
     Parameters
     ------
-        context: behave context
+        context: behave.runner.Context
     """
     logging.info(
         f"Initialize playwright - userdata browser: {context.config.userdata['browser']}")
