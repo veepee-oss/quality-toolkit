@@ -44,44 +44,7 @@ def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
         return webdriver.Remote(remote_url, options=options)
 
 
-def initialize_sync_playwright(context):
-    """
-    Sync method to initialize context.browser with playwright
-    Parameters
-    ------
-        context: behave.runner.Context
-    """
-    logging.info(
-        f"Initialize playwright - userdata browser: {context.config.userdata['browser']}")
-    headless = bool(context.config.userdata['browser_headless'] == 'true')
-    if context.config.userdata['browser'] not in ['chrome', 'firefox']:
-        raise TypeError(
-            f"The browser '{context.config.userdata['browser']}' is not handle. ")
-    context.browser = __install_sync_playwright(
-        browser=context.config.userdata['browser'], headless=headless)
-    assert context.browser is not None, "Failed to initialize the sync driver"
-    logging.info(f"Initialize playwright - Context browser: {context.browser}")
-
-
-async def initialize_async_playwright(context):
-    """
-    Async method to initialize context.browser with playwright
-    Parameters
-    ------
-        context: behave.runner.Context
-    """
-    logging.info(
-        f"Initialize playwright - userdata browser: {context.config.userdata['browser']}")
-    headless = bool(context.config.userdata['browser_headless'] == 'true')
-    if context.config.userdata['browser'] not in ['chrome', 'firefox']:
-        raise TypeError(
-            f"The browser '{context.config.userdata['browser']}' is not handle. ")
-    context.browser = await __install_async_playwright(browser=context.config.userdata['browser'], headless=headless)
-    assert context.browser is not None, "Failed to initialize the async driver"
-    logging.info(f"Initialize playwright - Context browser: {context.browser}")
-
-
-def __install_sync_playwright(browser='chrome', **kwargs):
+def install_sync_playwright(browser='chromium', **kwargs):
     """
     Method to install sync playwright browser
     Parameters
@@ -142,11 +105,15 @@ def __install_sync_playwright(browser='chrome', **kwargs):
         return playwright.webkit.launch(**kwargs)
     if browser == 'firefox':
         return playwright.firefox.launch(**kwargs)
+    if browser == 'chrome':
+        return playwright.chrome.launch(**kwargs)
+    if browser == 'msedge':
+        return playwright.msedge.launch(**kwargs)
     else:
         return playwright.chromium.launch(**kwargs)
 
 
-async def __install_async_playwright(browser='chrome', **kwargs):
+async def install_async_playwright(browser='chromium', **kwargs):
     """
    Method to install async playwright browser
    Parameters
@@ -207,5 +174,9 @@ async def __install_async_playwright(browser='chrome', **kwargs):
         return await playwright.webkit.launch(**kwargs)
     if browser == 'firefox':
         return await playwright.firefox.launch(**kwargs)
+    if browser == 'chrome':
+        return await playwright.chrome.launch(**kwargs)
+    if browser == 'msedge':
+        return await playwright.msedge.launch(**kwargs)
     else:
         return await playwright.chromium.launch(**kwargs)
