@@ -64,6 +64,12 @@ def initialize_sync_playwright(context):
 
 
 async def initialize_async_playwright(context):
+    """
+    Async method to initialize context.browser with playwright
+    Parameters
+    ------
+        context: behave.runner.Context
+    """
     logging.info(
         f"Initialize playwright - userdata browser: {context.config.userdata['browser']}")
     headless = bool(context.config.userdata['browser_headless'] == 'true')
