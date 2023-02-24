@@ -1,8 +1,6 @@
 """
 All methods link to the ui
 """
-import logging
-
 from playwright.async_api import async_playwright
 from playwright.sync_api import sync_playwright
 from selenium import webdriver
