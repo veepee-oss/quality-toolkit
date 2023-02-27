@@ -7,7 +7,7 @@ import time
 import requests
 
 
-def send_api_request(method, url, status_code=None, nb_retry=5, wait_time=10, **kwargs):
+def send_api_request(method, url, status_code=None, nb_retry=5, wait_time=10, timeout=10, **kwargs):
     """Constructs and sends a :class:`Request <Request>`.
         :param method: method for the new :class:`Request` object: ``GET``, ``OPTIONS``, ``HEAD``, ``POST``, ``PUT``, ``PATCH``, or ``DELETE``.
         :param url: URL for the new :class:`Request` object.
@@ -42,7 +42,7 @@ def send_api_request(method, url, status_code=None, nb_retry=5, wait_time=10, **
         status_code = [200, 201, 202, 204]
     retry = 0
     while True:
-        response = requests.request(method, url, **kwargs)
+        response = requests.request(method, url, timeout=timeout, **kwargs)
         if response.status_code in status_code:
             return response
         if retry < nb_retry != 0:
