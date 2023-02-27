@@ -104,9 +104,9 @@ def install_sync_playwright(browser='chromium', **kwargs):
     if browser == 'firefox':
         return playwright.firefox.launch(**kwargs)
     if browser == 'chrome':
-        return playwright.chrome.launch(**kwargs)
+        return playwright.chromium.launch(channel="chrome", **kwargs)
     if browser == 'msedge':
-        return playwright.msedge.launch(**kwargs)
+        return playwright.chromium.launch(channel="msedge", **kwargs)
     else:
         return playwright.chromium.launch(**kwargs)
 
@@ -173,8 +173,8 @@ async def install_async_playwright(browser='chromium', **kwargs):
     if browser == 'firefox':
         return await playwright.firefox.launch(**kwargs)
     if browser == 'chrome':
-        return await playwright.chrome.launch(**kwargs)
+        return playwright.chromium.launch(channel="chrome", **kwargs)
     if browser == 'msedge':
-        return await playwright.msedge.launch(**kwargs)
+        return playwright.chromium.launch(channel="msedge", **kwargs)
     else:
         return await playwright.chromium.launch(**kwargs)
