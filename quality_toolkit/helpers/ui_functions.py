@@ -42,7 +42,7 @@ def install_selenium_webdriver(remote_url, browser='chrome', headless=True):
         return webdriver.Remote(remote_url, options=options)
 
 
-def install_sync_playwright(browser='chrome', **kwargs):
+def install_sync_playwright(browser='chromium', **kwargs):
     """
     Method to install sync playwright browser
     Parameters
@@ -103,11 +103,15 @@ def install_sync_playwright(browser='chrome', **kwargs):
         return playwright.webkit.launch(**kwargs)
     if browser == 'firefox':
         return playwright.firefox.launch(**kwargs)
+    if browser == 'chrome':
+        return playwright.chromium.launch(channel="chrome", **kwargs)
+    if browser == 'msedge':
+        return playwright.chromium.launch(channel="msedge", **kwargs)
     else:
         return playwright.chromium.launch(**kwargs)
 
 
-async def install_async_playwright(browser='chrome', **kwargs):
+async def install_async_playwright(browser='chromium', **kwargs):
     """
    Method to install async playwright browser
    Parameters
@@ -168,5 +172,9 @@ async def install_async_playwright(browser='chrome', **kwargs):
         return await playwright.webkit.launch(**kwargs)
     if browser == 'firefox':
         return await playwright.firefox.launch(**kwargs)
+    if browser == 'chrome':
+        return playwright.chromium.launch(channel="chrome", **kwargs)
+    if browser == 'msedge':
+        return playwright.chromium.launch(channel="msedge", **kwargs)
     else:
         return await playwright.chromium.launch(**kwargs)
