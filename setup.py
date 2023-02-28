@@ -16,7 +16,7 @@ setup(
         'selenium==4.8.2',
         'python-keycloak-client==0.2.3',
         'pysftp==0.2.9',
-        'playwright==1.31.0'],
+        'playwright==1.31.1'],
     author="VpTech",
     author_email="vptech@veepee.com",
     description="Toolkit for the quality in order to help writing tests",
