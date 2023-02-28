@@ -1,3 +1,10 @@
+## [2.1.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.1.0...2.1.1) (2023-02-28)
+
+
+### Bug Fixes
+
+* **version:** clean changelog and update version ([dcfb746](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/dcfb746224bc86117236eaf984ddd940ce240702))
+
 ## [2.0.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.0.0...2.0.1) (2023-02-22)
 
 
