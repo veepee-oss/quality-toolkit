@@ -28,12 +28,12 @@ quality-toolkit
 and finish by install the project dependencies :
 
 ```bash
-pip3 install
+pip3 install -r requirements.txt
 ```
 
 ## How to use the lib
 
-See the list of available componants :
+See the list of available components :
 
-* [Helpers](docs/helpers.md)
-* [Services](docs/services.md)
+* [docstring](docs/docstrings.md)
+
