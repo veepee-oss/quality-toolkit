@@ -5,12 +5,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="quality-toolkit",
-    version="2.2.0",
+    version="2.4.0-beta.1",
     packages=find_packages(),
     entry_points={},
     install_requires=[
         'psycopg2-binary==2.9.5',
-        'requests==2.28.2',
+        'requests==2.31.0',
         'pytz==2022.7.1',
         'python-tds==1.12.0',
         'selenium==4.8.2',

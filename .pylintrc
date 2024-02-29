@@ -118,7 +118,8 @@ disable=
     no-else-return,
     no-member,
     differing-param-doc,
-    differing-type-doc
+    differing-type-doc,
+    redundant-returns-doc
 
 [REPORTS]
 
