@@ -37,6 +37,7 @@ class BaseSql(ABC):
                 break
             retry += 1
             time.sleep(wait_time)
+        return None
 
     def fetch_one(self, query, params=None, nb_retry=5, wait_time=5):
         """
@@ -66,6 +67,7 @@ class BaseSql(ABC):
                 break
             retry += 1
             time.sleep(wait_time)
+        return None
 
     def close(self):
         """

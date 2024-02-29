@@ -28,6 +28,6 @@ variables:
 
 lint:python:
   stage: lint
-  image: docker.registry.vptech.eu/python:latest
+  image: docker.registry.vptech.eu/python:3.11
   before_script:
     - pip install pylint==2.16.2

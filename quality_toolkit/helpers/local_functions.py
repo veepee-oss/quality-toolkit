@@ -1,7 +1,6 @@
 """
 All methods link to the local environment
 """
-import os
 from datetime import datetime
 from pathlib import Path
 
