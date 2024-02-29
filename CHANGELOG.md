@@ -1,3 +1,15 @@
+# [2.4.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.3.0...2.4.0) (2024-02-29)
+
+
+### Chores
+
+* **deps:** update dependency veepee/vptech/ci-cd/python-build to v3 ([955b28c](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/955b28ce7116f9cbed68e9497c6bb04b4a403c51))
+
+
+### Features
+
+* **timeout requests:** fix timeout to 60 sec for api requests ([f641482](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/f6414822421f2498a496bc972f420caa362df4d1))
+
 # [2.2.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.1.1...2.2.0) (2023-09-06)
 
 
