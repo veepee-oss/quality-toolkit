@@ -1,3 +1,15 @@
+# [2.2.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.1.1...2.2.0) (2023-09-06)
+
+
+### Chores
+
+* **deps:** update dependency playwright to v1.31.1 ([d87c660](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/d87c660a430c27d54b73b40bd7dd9a1d528d451c))
+
+
+### Features
+
+* **timeout requests:** fix timeout to 60 sec for api requests ([f641482](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/f6414822421f2498a496bc972f420caa362df4d1))
+
 ## [2.1.1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.1.0...2.1.1) (2023-02-28)
 
 
