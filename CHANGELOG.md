@@ -1,3 +1,9 @@
+## [2.5.3](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.2...2.5.3) (2025-10-23)
+
+### Bug Fixes
+
+* **gitlab-ci:** fix python publication scripts ([5293af1](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/5293af163a14872ff0f5ab60afe463127f912619))
+
 ## [2.5.2](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.1...2.5.2) (2025-10-23)
 
 ### Bug Fixes
