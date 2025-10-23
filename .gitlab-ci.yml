@@ -51,6 +51,7 @@ python-publish:
       else
         echo "No requirements found";
       fi
+    - pip install build
     - python -m build --sdist --wheel
     - pip install twine
     - twine upload --repository-url "${REGISTRY_PYPI_REPO}" -u "${REGISTRY_USERNAME}" -p "${REGISTRY_PASSWORD}" dist/*
