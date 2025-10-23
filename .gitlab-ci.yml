@@ -26,3 +26,4 @@ variables:
   PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
   REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
   PYTHON_VERSION: "3.10"
+  PYTHON_LINT_VER: 3.10"
