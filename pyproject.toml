@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quality-toolkit"
+version = "2.5.0"
+authors = [
+    {name = "VpTech", email = "vptech@veepee.com"},
+]
+description = "Toolkit for the quality in order to help writing tests"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["Quality", "Toolkit", "Testing"]
+dependencies = [
+    "psycopg2-binary==2.9.11",
+    "requests==2.32.5",
+    "pytz==2025.2",
+    "python-tds==1.17.1",
+    "selenium==4.36.0",
+    "python-keycloak-client==0.2.3",
+    "pysftp==0.2.9",
+    "playwright==1.55.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/veepee-oss/quality-toolkit"
+
+[tool.setuptools.packages]
+find = {}

@@ -1,3 +1,3 @@
 install:
-	@python setup.py sdist
-	@pip install -e .
+	@python3 -m build
+	@pip3 install -e .

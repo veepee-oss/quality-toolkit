@@ -24,8 +24,9 @@ def install_selenium_webdriver(remote_url='http://127.0.0.1:4444/wd/hub', browse
             options.add_argument("--headless")
         return webdriver.Remote(remote_url, options=options)
     elif browser == 'edge':
-        cap = {'browserName': 'MicrosoftEdge'}
-        return webdriver.Remote(remote_url, desired_capabilities=cap)
+        options = webdriver.EdgeOptions()
+        options.set_capability("browserName", "MicrosoftEdge")
+        return webdriver.Remote(remote_url, options=options)
     else:
         options = webdriver.ChromeOptions()
         options.add_argument("--no-sandbox")
@@ -95,7 +96,7 @@ def install_sync_playwright(browser='chromium', **kwargs):
         return playwright.chromium.launch(**kwargs)
 
 
-async def install_async_playwright_browser( browser: str = 'chrome', **kwargs):
+async def install_async_playwright( browser: str = 'chrome', **kwargs):
     """ Method to install the Async Playwright browser.
 
     Args:

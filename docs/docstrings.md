@@ -279,12 +279,12 @@ Method to install the Sync Playwright browser.
 - `firefox_user_prefs` _Union[Dict[str, Union[bool, float, str]], None], optional_ - Firefox user preferences.
   Learn more about the Firefox user preferences at `about:config`.
 
-<a id="helpers.ui_functions.install_async_playwright_browser"></a>
+<a id="helpers.ui_functions.install_async_playwright"></a>
 
 ### install\_async\_playwright\_browser
 
 ```python
-async def install_async_playwright_browser(browser: str = 'chrome', **kwargs)
+async def install_async_playwright(browser: str = 'chrome', **kwargs)
 ```
 
 Method to install the Async Playwright browser.
