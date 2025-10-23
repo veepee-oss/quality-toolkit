@@ -10,7 +10,7 @@ include:
     ref: 2-latest
     file: gitlab-ci.yml
   - project: veepee/vptech/ci-cd/python-lint
-    ref: 2-latest
+    ref: 3-latest
     file: gitlab-ci.yml
 
 stages:
