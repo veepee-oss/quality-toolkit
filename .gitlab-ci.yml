@@ -27,8 +27,9 @@ variables:
   REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
   PYTHON_VERSION: "3.10"
 
+# Force to use python:3.10
 lint:python:
   stage: lint
   image: docker.registry.vptech.eu/python:3.10
   before_script:
-    - pip install pylint==4.0.2
+    - pip install pylint==3.3.9
