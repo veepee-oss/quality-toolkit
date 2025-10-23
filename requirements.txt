@@ -1,16 +1,16 @@
 # Postgres client
-psycopg2-binary==2.9.5
+psycopg2-binary==2.9.11
 # Curl client
-requests==2.31.0
+requests==2.32.5
 # Timezone library
-pytz==2022.7.1
+pytz==2025.2
 # MSSQL client
-python-tds==1.12.0
+python-tds==1.17.1
 # UI library
-selenium==4.8.2
+selenium==4.37.0
 # SSO client
 python-keycloak-client==0.2.3
 # SFTP client
 pysftp==0.2.9
 # playwright
-playwright==1.31.1
+playwright==1.55.0
