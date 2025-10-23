@@ -33,3 +33,27 @@ lint:python:
   image: docker.registry.vptech.eu/python:3.10
   before_script:
     - pip install pylint==3.3.9
+
+python-publish:
+  stage: publish-python
+  image: docker.registry.vptech.eu/python:${PYTHON_VERSION}
+  script:
+    - if [ -f pip.conf ];
+      then
+        export PIP_CONFIG_FILE=pip.conf;
+      else
+        echo "No custom pip configuration found";
+      fi
+    - if [[ ! -z "${PYTHON_BUILD_EXTRA_APT_PACKAGES}" ]]; then apt-get update --quiet && apt-get install --quiet --yes ${PYTHON_BUILD_EXTRA_APT_PACKAGES}  && apt-get clean; fi
+    - if [ -f requirements.txt ];
+      then
+        pip install -i "${PYTHON_REGISTRY}" -r requirements.txt;
+      else
+        echo "No requirements found";
+      fi
+    - python -m build --sdist --wheel
+    - pip install twine
+    - twine upload --repository-url "${REGISTRY_PYPI_REPO}" -u "${REGISTRY_USERNAME}" -p "${REGISTRY_PASSWORD}" dist/*
+    - export PACKAGE_VERSION=$(echo $CI_COMMIT_TAG | sed -rn 's/([0-9.]*)-?([a-z])?[a-z]*.?(\d)?/\1\2\3/p')
+    - echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> build.env
+    - echo "To install your package, use pip install $PYTHON_MODULE==${PACKAGE_VERSION}"
