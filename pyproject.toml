@@ -10,7 +10,7 @@ authors = [
 ]
 description = "Toolkit for the quality in order to help writing tests"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 keywords = ["Quality", "Toolkit", "Testing"]
 dependencies = [
     "psycopg2-binary==2.9.11",
