@@ -25,9 +25,4 @@ variables:
   SEMANTIC_CONFIG_FILE: python
   PYTHON_VEEPEE_REGISTRY_ENABLED: "false"
   REGISTRY_PYPI_REPO: "https://test.pypi.org/legacy/"
-
-lint:python:
-  stage: lint
-  image: docker.registry.vptech.eu/python:3.11
-  before_script:
-    - pip install pylint==2.16.2
+  PYTHON_VERSION: "3.9"
