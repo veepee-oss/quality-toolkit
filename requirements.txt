@@ -7,7 +7,7 @@ pytz==2025.2
 # MSSQL client
 python-tds==1.17.1
 # UI library
-selenium==4.37.0
+selenium==4.36.0
 # SSO client
 python-keycloak-client==0.2.3
 # SFTP client
