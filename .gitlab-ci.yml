@@ -34,7 +34,7 @@ lint:python:
   before_script:
     - pip install pylint==3.3.9
 
-python-publish:
+.python-publish:
   stage: publish-python
   image: docker.registry.vptech.eu/python:${PYTHON_VERSION}
   script:
