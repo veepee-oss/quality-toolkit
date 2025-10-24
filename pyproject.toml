@@ -28,3 +28,26 @@ Homepage = "https://github.com/veepee-oss/quality-toolkit"
 
 [tool.setuptools.packages]
 find = {}
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+# This command will be executed after the next version has been determined, and stamped into your files but before a release tag has been created.
+build_command = "python -m build --sdist --wheel ."
+commit_parser = "conventional"
+
+[tool.semantic_release.commit_parser_options]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
+parse_squash_commits = true
+ignore_merge_commits = true
+
+[tool.semantic_release.changelog.default_templates]
+changelog_file = "./CHANGELOG.md"
+output_format = "md"
+
+[tool.semantic_release.branches.alpha]
+# Matches branches with the prefixes 'feat/', 'fix/', or 'perf/'.
+match = "^(feat|fix|perf)/.+"
+prerelease = true
+prerelease_token = "alpha"
+

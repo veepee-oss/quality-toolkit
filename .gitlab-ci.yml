@@ -52,7 +52,7 @@ lint:python:
         echo "No requirements found";
       fi
     - pip install build
-    - python -m build --sdist --wheel
+    - python -m build
     - pip install twine
     - twine upload --repository-url "${REGISTRY_PYPI_REPO}" -u "${REGISTRY_USERNAME}" -p "${REGISTRY_PASSWORD}" dist/*
     - export PACKAGE_VERSION=$(echo $CI_COMMIT_TAG | sed -rn 's/([0-9.]*)-?([a-z])?[a-z]*.?(\d)?/\1\2\3/p')
