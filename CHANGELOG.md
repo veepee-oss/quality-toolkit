@@ -1,3 +1,9 @@
+## [2.5.5](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.4...2.5.5) (2025-10-24)
+
+### Bug Fixes
+
+* **api_functions:** remove keyword-only argument for method and url, add timeout handling ([9749517](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/9749517e24eea656e3230c0bbb2763a3092f31bc))
+
 ## [2.5.4](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.3...2.5.4) (2025-10-23)
 
 ### Bug Fixes
