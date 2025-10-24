@@ -1,3 +1,10 @@
+## [2.5.6](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.5...2.5.6) (2025-10-24)
+
+### Bug Fixes
+
+* **api_functions:** update timeout handling and version bump to 2.5.6 ([db8f9d8](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/db8f9d855783ae2e209a6fd3b68add4685c30056))
+* **pylintrc:** add missing-timeout to pylint disable list ([02b436d](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/02b436d87467013de6bcd1f2c21ac4b40b9729d6))
+
 ## [2.5.5](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.4...2.5.5) (2025-10-24)
 
 ### Bug Fixes
