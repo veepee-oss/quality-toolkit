@@ -40,13 +40,13 @@ def send_api_request(method, url, status_code=None, nb_retry=5, wait_time=10, **
     Returns:
         Response: Response object.
     """
-    timeout = kwargs.get('timeout', 60)
+    kwargs.setdefault('timeout', 60)
 
     if status_code is None:
         status_code = [200, 201, 202, 204]
     retry = 0
     while True:
-        response = requests.request(method, url, timeout=timeout, **kwargs)
+        response = requests.request(method, url, **kwargs)
         if response.status_code in status_code:
             return response
         if retry < nb_retry != 0:
