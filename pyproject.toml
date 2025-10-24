@@ -47,7 +47,12 @@ output_format = "md"
 
 [tool.semantic_release.branches.alpha]
 # Matches branches with the prefixes 'feat/', 'fix/', or 'perf/'.
-match = "^(feat|fix|perf)/.+"
+match = "^alpha$"
 prerelease = true
 prerelease_token = "alpha"
 
+[tool.semantic_release.branches.beta]
+# Matches branches with the prefixes 'feat/', 'fix/', or 'perf/'.
+match = "^beta$"
+prerelease = true
+prerelease_token = "beta"
