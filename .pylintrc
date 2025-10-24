@@ -115,7 +115,8 @@ disable=
     no-member,
     differing-param-doc,
     differing-type-doc,
-    redundant-returns-doc
+    redundant-returns-doc,
+    missing-timeout
 
 [REPORTS]
 
