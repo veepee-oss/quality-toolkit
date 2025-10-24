@@ -7,7 +7,7 @@ import time
 import requests
 
 
-def send_api_request(*, method, url, status_code=None, nb_retry=5, wait_time=10, timeout=60, **kwargs):
+def send_api_request(method, url, status_code=None, nb_retry=5, wait_time=10, **kwargs):
     """
     Constructs and sends a Request object.
 
@@ -40,6 +40,8 @@ def send_api_request(*, method, url, status_code=None, nb_retry=5, wait_time=10,
     Returns:
         Response: Response object.
     """
+    timeout = kwargs.get('timeout', 60)
+
     if status_code is None:
         status_code = [200, 201, 202, 204]
     retry = 0
