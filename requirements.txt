@@ -7,10 +7,10 @@ pytz==2025.2
 # MSSQL client
 python-tds==1.17.1
 # UI library
-selenium==4.36.0
+selenium==4.40.0
 # SSO client
 python-keycloak-client==0.2.3
 # SFTP client
-pysftp==0.2.9
+paramiko==4.0.0
 # playwright
-playwright==1.55.0
+playwright==1.58.0

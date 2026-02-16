@@ -1,7 +1,8 @@
 import logging
+import stat
 from pathlib import Path
 
-import pysftp
+import paramiko
 
 
 class Sftp:
@@ -37,9 +38,13 @@ class Sftp:
             password (str): The password to authenticate with on the remote server.
         """
         logging.getLogger('paramiko').setLevel(logging.WARNING)
-        cnopts = pysftp.CnOpts()
-        cnopts.hostkeys = None
-        self.sftp = pysftp.Connection(host=host, username=username, password=password, cnopts=cnopts)
+
+        # Create SSH client and connect
+        self.transport = paramiko.Transport((host, 22))
+        self.transport.connect(username=username, password=password)
+
+        # Create SFTP client
+        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
 
     def upload_file(self, local_file, remote_path):
         """
@@ -63,13 +68,18 @@ class Sftp:
             list_files (list): A list of file names in the remote path that match the provided file name.
         """
         list_files = []
-        self.sftp.cwd(remote_path)
+        self.sftp.chdir(remote_path)
         list_elt = self.sftp.listdir()
         for elt in list_elt:
             p = Path(elt)
-            if self.sftp.isfile(elt) and elt.replace("".join(p.suffixes), "") == file:
-                self.sftp.remove(elt)
-            elif self.sftp.isfile(elt):
+            full_path = f"{remote_path}/{elt}" if not remote_path.endswith('/') else f"{remote_path}{elt}"
+            file_stat = self.sftp.stat(full_path)
+            # Check if it's a file (not a directory)
+            is_file = not stat.S_ISDIR(file_stat.st_mode)
+
+            if is_file and elt.replace("".join(p.suffixes), "") == file:
+                self.sftp.remove(full_path)
+            elif is_file:
                 list_files.append(elt)
         return list_files
 
@@ -78,3 +88,4 @@ class Sftp:
         Closes the SFTP connection.
         """
         self.sftp.close()
+        self.transport.close()

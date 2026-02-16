@@ -1,6 +1,9 @@
 """
 All methods link to the local environment
 """
+import importlib
+import logging
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -68,10 +71,23 @@ def import_recurcively_modules(path_file: str) -> None:
     """
     __all__ = []
     path = [path_file]
-    for loader, module_name, _ in pkgutil.walk_packages(path):
+    for loader, module_name, is_pkg in pkgutil.walk_packages(path):
         __all__.append(module_name)
-        _module = loader.find_module(module_name).load_module(module_name)
-        globals()[module_name] = _module
+
+        # Skip if module is already imported
+        full_module_name = f"steps.{module_name}"
+        if full_module_name in sys.modules:
+            continue
+
+        # Use modern importlib instead of deprecated find_module/load_module
+        try:
+            spec = loader.find_spec(module_name)
+            if spec is not None and spec.loader is not None:
+                _module = importlib.util.module_from_spec(spec)
+                sys.modules[full_module_name] = _module
+                spec.loader.exec_module(_module)
+        except Exception as e:
+            logging.warning(f"Could not import module {module_name}: {e}")
 
 
 def get_timezone_paris(timezone: str = 'Europe/Paris') -> datetime:
