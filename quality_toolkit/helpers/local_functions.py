@@ -2,6 +2,7 @@
 All methods link to the local environment
 """
 import importlib
+import importlib.util
 import logging
 import sys
 from datetime import datetime
@@ -71,7 +72,7 @@ def import_recurcively_modules(path_file: str) -> None:
     """
     __all__ = []
     path = [path_file]
-    for loader, module_name, is_pkg in pkgutil.walk_packages(path):
+    for loader, module_name, _ in pkgutil.walk_packages(path):
         __all__.append(module_name)
 
         # Skip if module is already imported
@@ -86,7 +87,7 @@ def import_recurcively_modules(path_file: str) -> None:
                 _module = importlib.util.module_from_spec(spec)
                 sys.modules[full_module_name] = _module
                 spec.loader.exec_module(_module)
-        except Exception as e:
+        except (AttributeError, ModuleNotFoundError) as e:
             logging.warning(f"Could not import module {module_name}: {e}")
 
 
