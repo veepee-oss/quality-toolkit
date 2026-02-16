@@ -1,3 +1,14 @@
+## [2.6.0](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.6...2.6.0) (2026-02-16)
+
+### Features
+
+* **tests:** add comprehensive test suite and verification scripts ([4879d61](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/4879d617145fd0e76f03906e102851124902c6b4))
+
+### Bug Fixes
+
+* **lint:** refine error handling for module imports ([c9816ca](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/c9816cadc9d6dcd790d312e6d92be428aaedf98d))
+* **version:** bump version to 2.6.0 in pyproject.toml ([6b8e485](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/commit/6b8e485c1b2e2aa5fcbbb5d525678e3b20012429))
+
 ## [2.5.6](https://git.vptech.eu/veepee/vptech/qa/quality-toolkit/compare/2.5.5...2.5.6) (2025-10-24)
 
 ### Bug Fixes
